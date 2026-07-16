@@ -1,0 +1,213 @@
+.container {
+  padding: 8rem 2rem 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 85vh;
+  position: relative;
+}
+
+.glow {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.9rem;
+  color: var(--gold-primary);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1.5rem;
+  background: rgba(212, 175, 55, 0.03);
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-cinzel), serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.infoDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.infoTitle {
+  font-family: var(--font-cinzel), serif;
+  font-size: 1.8rem;
+  color: var(--gold-primary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.infoDesc {
+  font-family: var(--font-outfit), sans-serif;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  transition: var(--transition-smooth);
+}
+
+.infoCard:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.iconWrapper {
+  color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.05);
+  padding: 0.75rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoLabel {
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.infoValue {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.mailLink {
+  color: var(--text-primary);
+  transition: var(--transition-fast);
+}
+
+.mailLink:hover {
+  color: var(--gold-primary);
+}
+
+/* Contact Form */
+.formWrapper {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 3rem;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input, .textarea {
+  background: rgba(5, 5, 5, 0.8);
+  border: 1px solid var(--border-color);
+  padding: 0.9rem 1.2rem;
+  color: var(--text-primary);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.input:focus, .textarea:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.successMsg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 3rem 0;
+}
+
+.successTitle {
+  font-family: var(--font-cinzel), serif;
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+}
+
+.successText {
+  font-family: var(--font-outfit), sans-serif;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 400px;
+  line-height: 1.6;
+}

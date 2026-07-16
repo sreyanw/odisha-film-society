@@ -1,0 +1,245 @@
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 4rem 0 2rem 0;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Top Row: Branding and Navigation */
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.brandInfo {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.logoIcon {
+  color: var(--gold-primary);
+}
+
+.description {
+  font-family: var(--font-outfit), sans-serif;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.navLink {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--gold-primary);
+}
+
+/* Divider Line */
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 2rem 0;
+}
+
+/* Middle Row: Horizontal Info & Contacts */
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.infoGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.contactGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  color: var(--gold-primary);
+  flex-shrink: 0;
+}
+
+.boldText {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.text {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.bullet {
+  color: rgba(212, 175, 55, 0.25);
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+.mailLink {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.9rem;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: var(--transition-fast);
+}
+
+.mailLink:hover {
+  color: var(--gold-primary);
+}
+
+/* Social Media Horizontal Links */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.socialLabel {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.2rem;
+}
+
+.socialIcon {
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+  display: flex;
+}
+
+.socialIcon:hover {
+  color: var(--gold-primary);
+  transform: translateY(-1px);
+}
+
+/* Bottom Copyright Section */
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copy {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.powered {
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.85rem;
+  color: var(--gold-primary);
+  opacity: 0.8;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .topRow {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .brandInfo {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .infoRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .infoGroup, .contactGroup {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .bullet {
+    display: none; /* Hide dots on stack */
+  }
+}
+
+@media (max-width: 640px) {
+  .infoGroup {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .contactGroup {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
