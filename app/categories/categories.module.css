@@ -1,0 +1,117 @@
+.container {
+  position: relative;
+  padding: 9rem 1.5rem 6rem;
+  max-width: 1140px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* ── Header ─────────────────────────────── */
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.title {
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.divider {
+  color: var(--gold);
+  max-width: 100%;
+}
+
+.lede {
+  max-width: 34rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* ── Grid ───────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-bottom: 4rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.7rem;
+  padding: 2rem 1.4rem;
+  background: linear-gradient(180deg, rgba(60, 19, 16, 0.55), rgba(29, 12, 8, 0.85));
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.cardIcon {
+  color: var(--gold);
+}
+
+.cardName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold-light);
+}
+
+.cardDesc {
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ── Note ───────────────────────────────── */
+.note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+  padding: 3.5rem 2rem;
+}
+
+.noteTitle {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text-primary);
+  max-width: 36rem;
+}
+
+.noteText {
+  max-width: 32rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

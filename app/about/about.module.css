@@ -1,199 +1,165 @@
 .container {
-  padding: 8rem 2rem 5rem 2rem;
+  position: relative;
+  padding: 9rem 1.5rem 6rem;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: 80vh;
+  overflow: hidden;
 }
 
-.glow {
-  position: absolute;
-  top: 15%;
-  right: 10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-}
-
+/* ── Header ─────────────────────────────── */
 .header {
-  text-align: center;
-  margin-bottom: 5rem;
   position: relative;
-  z-index: 1;
-}
-
-.badge {
-  font-family: var(--font-cinzel), serif;
-  font-size: 0.9rem;
-  color: var(--gold-primary);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  border: 1px solid var(--border-color);
-  padding: 0.5rem 1.5rem;
-  background: rgba(212, 175, 55, 0.03);
-  display: inline-block;
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 .title {
-  font-family: var(--font-cinzel), serif;
-  font-size: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 0.5rem;
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
+.divider {
+  color: var(--gold);
+  max-width: 100%;
+}
+
+/* ── Story + Glance ─────────────────────── */
 .contentGrid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 5rem;
-  align-items: flex-start;
   position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 900px) {
-  .contentGrid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 4rem;
 }
 
 .story {
+  padding: 3rem 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.3rem;
 }
 
 .subtitle {
-  font-family: var(--font-cinzel), serif;
-  font-size: 1.8rem;
-  color: var(--gold-primary);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink-on-parchment);
 }
 
 .paragraph {
-  font-family: var(--font-outfit), sans-serif;
-  color: var(--text-secondary);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   line-height: 1.8;
-  font-weight: 300;
+  color: var(--ink-soft);
 }
 
-.highlightText {
-  color: var(--text-primary);
-  font-weight: 400;
-  border-left: 2px solid var(--gold-primary);
-  padding-left: 1rem;
+.quote {
+  padding: 1.1rem 1.5rem;
+  border-left: 3px solid #8a4b16;
+  font-size: 1.02rem;
   font-style: italic;
+  line-height: 1.75;
+  color: var(--ink-on-parchment);
+  background: rgba(140, 90, 30, 0.1);
+  border-radius: 0 4px 4px 0;
 }
 
-/* Sidebar Info Panel */
 .infoPanel {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  padding: 3rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 2.25rem 2rem;
 }
 
 .panelTitle {
-  font-family: var(--font-cinzel), serif;
-  font-size: 1.4rem;
-  color: var(--text-primary);
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
-  letter-spacing: 0.05em;
+  margin-bottom: 1.75rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  text-align: center;
+  color: var(--gold);
 }
 
 .milestones {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.6rem;
 }
 
 .milestoneItem {
   display: flex;
+  align-items: flex-start;
   gap: 1rem;
 }
 
 .iconWrapper {
-  color: var(--gold-primary);
-  margin-top: 0.2rem;
-}
-
-.milestoneContent {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  color: var(--gold);
+  background: rgba(74, 21, 18, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
 }
 
 .milestoneTitle {
-  font-family: var(--font-cinzel), serif;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   color: var(--gold-light);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  margin-bottom: 0.35rem;
 }
 
 .milestoneDesc {
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
   color: var(--text-secondary);
-  line-height: 1.5;
 }
 
-/* Vision / Mission Section */
+/* ── Vision / Values / Heritage ─────────── */
 .visionMission {
-  margin-top: 8rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .visionMission {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
 .box {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid var(--border-color);
-  padding: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  transition: var(--transition-smooth);
+  align-items: center;
+  text-align: center;
+  gap: 0.9rem;
+  padding: 2.75rem 2rem;
 }
 
-.box:hover {
-  border-color: var(--gold-primary);
-  box-shadow: 0 5px 25px var(--gold-glow);
+.boxIcon {
+  color: var(--gold);
 }
 
 .boxTitle {
-  font-family: var(--font-cinzel), serif;
-  font-size: 1.6rem;
-  color: var(--gold-primary);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold-light);
 }
 
 .boxText {
-  font-family: var(--font-outfit), sans-serif;
-  color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.7;
-  font-weight: 300;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 900px) {
+  .contentGrid {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  .visionMission {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

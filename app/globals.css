@@ -1,22 +1,38 @@
 :root {
-  --bg-primary: #050505;
-  --bg-secondary: #0f0f0f;
-  --bg-tertiary: #1a1a1a;
-  
-  --text-primary: #f5f5f7;
-  --text-secondary: #a1a1a6;
-  --text-muted: #6e6e73;
-  
-  --gold-primary: #d4af37;
-  --gold-light: #f3e5ab;
-  --gold-dark: #aa7c11;
-  --gold-glow: rgba(212, 175, 55, 0.15);
-  
-  --border-color: rgba(212, 175, 55, 0.15);
-  --border-focus: rgba(212, 175, 55, 0.4);
-  
-  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* ── Surfaces: deep maroon → chocolate ─────────────────── */
+  --bg-deep: #150806;
+  --bg-primary: #1d0c08;
+  --bg-elevated: #29100b;
+  --maroon: #4a1512;
+  --maroon-deep: #35100d;
+  --maroon-panel: #3c1310;
+
+  /* ── Gold system ───────────────────────────────────────── */
+  --gold: #d4a843;
+  --gold-light: #f0d78c;
+  --gold-dark: #9a7418;
+  --gold-glow: rgba(212, 168, 67, 0.18);
+  --gold-hairline: rgba(212, 168, 67, 0.28);
+
+  /* ── Parchment (light panels) ──────────────────────────── */
+  --parchment: #ecdcb4;
+  --parchment-deep: #dcc493;
+  --ink-on-parchment: #3a2010;
+  --ink-soft: #6b4a2a;
+
+  /* ── Text on dark ──────────────────────────────────────── */
+  --text-primary: #f6ecd9;
+  --text-secondary: #cfb58f;
+  --text-muted: #a08462;
+
+  --border-color: rgba(212, 168, 67, 0.18);
+  --border-strong: rgba(212, 168, 67, 0.45);
+
+  --transition-smooth: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.2s ease;
+
+  --shadow-panel: 0 24px 60px rgba(0, 0, 0, 0.55);
+  --radius-panel: 10px;
 }
 
 * {
@@ -35,24 +51,45 @@ body {
   min-height: 100%;
   color: var(--text-primary);
   background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(122, 45, 22, 0.35), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 85% 100%, rgba(74, 21, 18, 0.4), transparent 65%),
+    linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-primary) 40%, var(--bg-deep) 100%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
+/* Subtle tapestry grain over everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--bg-deep);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-secondary);
-  border: 2px solid var(--bg-primary);
-  border-radius: 4px;
+  background: var(--maroon);
+  border: 2px solid var(--bg-deep);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -61,86 +98,196 @@ body {
 
 /* Selection */
 ::selection {
-  background-color: var(--gold-primary);
-  color: var(--bg-primary);
+  background-color: var(--gold);
+  color: var(--bg-deep);
 }
 
-/* Base Typography utilities */
+/* ── Typography utilities ─────────────────────────────────── */
 .heading-cinzel {
   font-family: var(--font-cinzel), serif;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 .text-gold {
-  color: var(--gold-primary);
-  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+  background: linear-gradient(160deg, var(--gold-light) 10%, var(--gold) 45%, var(--gold-dark) 90%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: var(--gold);
 }
 
-/* Glowing container background details */
-.bg-ambient-glow {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-  pointer-events: none;
-  filter: blur(80px);
-  z-index: 0;
-}
-
-/* Glassmorphism utility */
-.glass {
-  background: rgba(15, 15, 15, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-color);
-}
-
-/* Primary Cinematic Button */
-.btn-gold {
+/* Small-caps eyebrow label */
+.eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 2rem;
-  border: 1px solid var(--gold-primary);
-  background: transparent;
-  color: var(--gold-primary);
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  gap: 0.75rem;
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
+  color: var(--gold);
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  height: 1px;
+  width: 2rem;
+  background: linear-gradient(90deg, transparent, var(--gold-hairline));
+}
+
+.eyebrow::after {
+  background: linear-gradient(90deg, var(--gold-hairline), transparent);
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn-gold,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2.1rem;
+  min-height: 48px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: var(--transition-smooth);
+  border-radius: 3px;
+}
+
+.btn-gold {
+  border: 1px solid var(--gold-dark);
+  background: linear-gradient(160deg, var(--gold-light) 0%, var(--gold) 40%, var(--gold-dark) 100%);
+  color: #2a1505;
+  box-shadow: 0 6px 24px rgba(212, 168, 67, 0.25), inset 0 1px 0 rgba(255, 240, 200, 0.6);
 }
 
 .btn-gold::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
+  left: -120%;
+  width: 80%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: 0.5s;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transition: 0.6s ease;
 }
 
 .btn-gold:hover::before {
-  left: 100%;
+  left: 130%;
 }
 
 .btn-gold:hover {
-  background: var(--gold-primary);
-  color: var(--bg-primary);
-  box-shadow: 0 0 15px var(--gold-glow);
   transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(212, 168, 67, 0.4), inset 0 1px 0 rgba(255, 240, 200, 0.6);
 }
 
 .btn-gold:active {
   transform: translateY(0);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-strong);
+  background: rgba(21, 8, 6, 0.35);
+  color: var(--gold-light);
+}
+
+.btn-outline:hover {
+  background: rgba(212, 168, 67, 0.12);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+}
+
+.btn-gold:focus-visible,
+.btn-outline:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ── Ornate panel (maroon, gold hairline frame) ───────────── */
+.panel-ornate {
+  position: relative;
+  background:
+    radial-gradient(ellipse 120% 100% at 50% 0%, rgba(96, 30, 20, 0.55), transparent 70%),
+    linear-gradient(180deg, var(--maroon-panel) 0%, var(--maroon-deep) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+}
+
+.panel-ornate::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--gold-hairline);
+  border-radius: calc(var(--radius-panel) - 4px);
+  pointer-events: none;
+}
+
+/* ── Parchment panel ──────────────────────────────────────── */
+.panel-parchment {
+  position: relative;
+  color: var(--ink-on-parchment);
+  background:
+    radial-gradient(ellipse 100% 80% at 20% 0%, rgba(255, 250, 230, 0.55), transparent 60%),
+    linear-gradient(160deg, var(--parchment) 0%, var(--parchment-deep) 100%);
+  border-radius: 6px;
+  box-shadow: var(--shadow-panel), inset 0 0 60px rgba(140, 90, 30, 0.18);
+}
+
+.panel-parchment::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(107, 74, 42, 0.35);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+/* Ambient glow blob */
+.bg-ambient-glow {
+  position: absolute;
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(70px);
+  z-index: 0;
+}
+
+/* ── Reduced motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

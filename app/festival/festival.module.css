@@ -1,0 +1,215 @@
+.container {
+  position: relative;
+  padding: 9rem 1.5rem 6rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* ── Header ─────────────────────────────── */
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.divider {
+  color: var(--gold);
+  max-width: 100%;
+}
+
+.lede {
+  max-width: 36rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* ── Facts bar ──────────────────────────── */
+.factsBar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem;
+  margin-bottom: 4rem;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+  padding: 1.3rem 1rem;
+}
+
+.factIcon {
+  color: var(--gold);
+}
+
+.factLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.factValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ── Timeline ───────────────────────────── */
+.timelineSection {
+  margin-bottom: 4rem;
+}
+
+.sectionHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: 0.5rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 27px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gold-hairline) 15%, var(--gold-hairline) 85%, transparent);
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+}
+
+.timelineNode {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  color: var(--gold);
+  background: linear-gradient(180deg, var(--maroon-panel), var(--bg-elevated));
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  box-shadow: 0 0 24px rgba(212, 168, 67, 0.15);
+}
+
+.timelineCard {
+  flex: 1;
+  padding: 1.6rem 1.8rem;
+}
+
+.timelineDate {
+  font-family: var(--font-cinzel), serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.timelineTitle {
+  margin: 0.5rem 0 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+.timelineDesc {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* ── Venue ──────────────────────────────── */
+.venuePanel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+  padding: 4rem 2rem;
+  overflow: hidden;
+}
+
+.venuePanel > * {
+  position: relative;
+}
+
+.venueArt {
+  position: absolute !important;
+  inset: 0;
+  pointer-events: none;
+}
+
+.venueArtImg {
+  object-fit: cover;
+  object-position: 70% 35%;
+  opacity: 0.4;
+}
+
+.venueArtOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(53, 16, 13, 0.85) 0%, rgba(41, 13, 10, 0.7) 50%, rgba(41, 13, 10, 0.92) 100%);
+}
+
+.venueTitle {
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.venueDesc {
+  max-width: 32rem;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 768px) {
+  .factsBar {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

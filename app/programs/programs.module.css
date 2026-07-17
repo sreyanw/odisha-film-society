@@ -1,0 +1,146 @@
+.container {
+  position: relative;
+  padding: 9rem 1.5rem 6rem;
+  max-width: 1140px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* ── Header ─────────────────────────────── */
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.divider {
+  color: var(--gold);
+  max-width: 100%;
+}
+
+.lede {
+  max-width: 34rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* ── Feature rows ───────────────────────── */
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.rowArt {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: var(--shadow-panel);
+}
+
+.rowImg {
+  object-fit: cover;
+  object-position: 50% 30%;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.row:hover .rowImg {
+  transform: scale(1.04);
+}
+
+.rowArtFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(29, 12, 8, 0.1) 0%, transparent 40%, rgba(29, 12, 8, 0.45) 100%);
+}
+
+.rowContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.rowIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  color: var(--gold);
+  background: rgba(74, 21, 18, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.rowTitle {
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+.rowDesc {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 32rem;
+}
+
+/* ── CTA ────────────────────────────────── */
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.4rem;
+  margin-top: 5rem;
+}
+
+.ctaText {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 30rem;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+
+  .rowReverse .rowArt {
+    order: 2;
+  }
+
+  .rowReverse .rowContent {
+    order: 1;
+  }
+}

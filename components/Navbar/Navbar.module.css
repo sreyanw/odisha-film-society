@@ -4,152 +4,209 @@
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 1.5rem 0;
   transition: var(--transition-smooth);
   border-bottom: 1px solid transparent;
+  background: linear-gradient(180deg, rgba(21, 8, 6, 0.85) 0%, rgba(21, 8, 6, 0) 100%);
 }
 
 .scrolled {
-  padding: 1rem 0;
-  background: rgba(5, 5, 5, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(29, 10, 8, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Ornamental strip along the very top, like a temple frieze */
+.topOrnament {
+  height: 7px;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(212, 168, 67, 0.55) 0 2px,
+      transparent 2px 7px,
+      rgba(154, 116, 24, 0.45) 7px 9px,
+      transparent 9px 14px),
+    linear-gradient(180deg, #3a120d 0%, #240c08 100%);
+  border-bottom: 1px solid var(--gold-hairline);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0.9rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
+/* ── Logo lockup ─────────────────────────────── */
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.3rem;
-  font-weight: 700;
+  text-decoration: none;
   color: var(--text-primary);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  transition: var(--transition-fast);
 }
 
-.logoIcon {
-  color: var(--gold-primary);
-  filter: drop-shadow(0 0 5px var(--gold-glow));
+.logoImg {
+  width: 77px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(212, 168, 67, 0.3));
 }
 
-.logo:hover {
-  opacity: 0.9;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-}
-
-.desktopNav {
+.logoText {
   display: flex;
-  align-items: center;
-  gap: 2.5rem;
+  flex-direction: column;
+  line-height: 1.3;
 }
 
-@media (max-width: 768px) {
-  .desktopNav {
+.logoTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(160deg, var(--gold-light) 10%, var(--gold) 50%, var(--gold-dark) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logoSub {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 420px) {
+  .logoText {
     display: none;
   }
-  .actions {
+}
+
+/* In the tight band where the full nav first appears, drop the logo
+   wordmark (the OFS mark already carries the name) so links never wrap */
+@media (min-width: 1140px) and (max-width: 1339px) {
+  .logoText {
     display: none;
   }
+}
+
+/* ── Desktop nav ─────────────────────────────── */
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .navLink {
   position: relative;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--text-secondary);
+  padding: 0.6rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.5rem 0;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--text-secondary);
   transition: var(--transition-fast);
 }
 
 .navLink:hover {
-  color: var(--gold-primary);
-  text-shadow: 0 0 8px var(--gold-glow);
+  color: var(--gold-light);
+}
+
+.navLinkActive {
+  color: var(--gold);
 }
 
 .activeIndicator {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 0.65rem;
+  right: 0.65rem;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-  border-radius: 2px;
-  box-shadow: 0 0 8px var(--gold-primary);
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-.mobileToggle {
+.actions {
   display: none;
+}
+
+/* ── Mobile ──────────────────────────────────── */
+.mobileToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   background: transparent;
-  border: none;
-  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--gold);
   cursor: pointer;
-  padding: 0.5rem;
   transition: var(--transition-fast);
 }
 
 .mobileToggle:hover {
-  color: var(--gold-primary);
+  border-color: var(--border-strong);
+  background: rgba(212, 168, 67, 0.08);
 }
 
-@media (max-width: 768px) {
-  .mobileToggle {
-    display: block;
-  }
-}
-
-/* Mobile Nav Overlay */
 .mobileNav {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  border-top: 1px solid var(--border-color);
+  background: rgba(29, 10, 8, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
 }
 
 .mobileNavContainer {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  padding: 1rem 1.5rem 1.5rem;
+  gap: 0.25rem;
 }
 
 .mobileNavLink {
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-secondary);
   display: block;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.9rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(212, 168, 67, 0.08);
   transition: var(--transition-fast);
 }
 
-.mobileNavLink:hover, .mobileActiveLink {
-  color: var(--gold-primary);
-  border-bottom-color: var(--gold-primary);
-  padding-left: 0.5rem;
+.mobileNavLink:hover {
+  color: var(--gold-light);
+  padding-left: 1rem;
+}
+
+.mobileActiveLink {
+  color: var(--gold);
 }
 
 .mobileButtonWrapper {
   margin-top: 1rem;
+}
+
+@media (min-width: 1140px) {
+  .desktopNav {
+    display: flex;
+  }
+
+  .actions {
+    display: block;
+  }
+
+  .mobileToggle {
+    display: none;
+  }
 }

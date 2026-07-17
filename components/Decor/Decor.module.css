@@ -1,0 +1,62 @@
+.spin {
+  animation: chakraSpin 90s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes chakraSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin {
+    animation: none;
+  }
+}
+
+.cornerFrame {
+  position: absolute;
+  inset: 10px;
+  pointer-events: none;
+}
+
+.cornerFrame span {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-color: var(--border-strong);
+  border-style: solid;
+  border-width: 0;
+}
+
+.cornerTL {
+  top: 0;
+  left: 0;
+  border-top-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+.cornerTR {
+  top: 0;
+  right: 0;
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+}
+
+.cornerBL {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+}
+
+.cornerBR {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1.5px;
+  border-right-width: 1.5px;
+}

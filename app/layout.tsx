@@ -17,8 +17,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Odisha Film Society | First International Short Film Festival",
-  description: "Odisha's First International Short Film Festival organized by Odisha Film Society. Main event on 21st October 2026, at Rabindra Mandap, Bhubaneswar.",
+  title: "OISFF | Odisha International Short Film Festival",
+  description:
+    "Odisha's First International Short Film Festival by Odisha Film Society — from short films to big screens. Main event on 21st October 2026 at Rabindra Mandap, Bhubaneswar.",
 };
 
 export default function RootLayout({
